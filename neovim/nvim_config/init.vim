@@ -1,7 +1,7 @@
 call plug#begin()
 
-
-
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-rails'
 Plug 'pechorin/any-jump.vim'
 Plug 'preservim/nerdtree'
 Plug 'w0rp/ale'
@@ -44,10 +44,15 @@ set inccommand=split   " neovim realtime changes
 set clipboard=unnamedplus " Copypaste between vim and everywhere
 
 
+let g:ale_linters = {
+      \   'ruby': ['standardrb', 'rubocop'],
+      \   'python': ['flake8', 'pylint'],
+      \   'javascript': ['eslint'],
+      \ }
 
 
 
-
+let g:python3_host_prog = "/usr/bin/python3"
 let g:deoplete#enable_at_startup = 1
 let mapleader="\<space>"    " space key equals mapkey
 
