@@ -1,5 +1,8 @@
 call plug#begin()
 
+
+Plug 'fatih/vim-go'
+Plug 'Shougo/deoplete.nvim', {'do':':UpdateRemotePlugins'}
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 Plug 'pechorin/any-jump.vim'
@@ -11,16 +14,14 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-sensible'
 Plug 'sheerun/vim-polyglot'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'vim-airline/vim-airline'
-Plug 'takkii/Bignyanco'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-
 call plug#end()
 
+
+let g:deoplete#enable_at_startup = 1
 
 
 syntax enable " Enable syntax highlight
@@ -51,11 +52,18 @@ let g:ale_linters = {
       \ }
 
 
-
 let g:python3_host_prog = "/usr/bin/python3"
-let g:deoplete#enable_at_startup = 1
+
+
+
 let mapleader="\<space>"    " space key equals mapkey
 
+
+
+let g:deoplete#sources#go#gocode_binary = '$HOME/bin/gocode'
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
+let g:go_metalinter_enabled = ['vet', 'golint']
 
 
 " nerd file tree 
